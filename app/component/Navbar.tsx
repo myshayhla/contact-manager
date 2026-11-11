@@ -2,7 +2,7 @@ import Link from "next/link";
 import LogoutButton from "./LogoutBtn";
 
 export default function Navbar() {
-  const session = true;
+  const session = false;
 
   return (
     <nav className="w-full border-b border-gray-200 bg-white">
