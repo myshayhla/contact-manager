@@ -2,21 +2,17 @@
 
 import { useState } from "react";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { loginAction } from "../actions/auth";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    console.log({ email, password });
-  };
 
   return (
-    <form
-      onSubmit={handleSubmit}
+    <form action={loginAction}
+    
       className="w-full max-w-md space-y-5 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
     >
       {/* Email */}
