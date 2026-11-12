@@ -1,34 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "./component/Navbar";
 import { ThemeProvider } from "./_lib/theme-provider";
-// import Navbar from "@/component/Navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "./component/Navbar";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Contact Manager ",
-  description: "A simple contact manager application",
+  title: "Contact Manager",
+  description: "Manage your contacts easily",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <Navbar/>
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang="en">
+      <body>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
